@@ -1,4 +1,4 @@
-import { Component, OnInit , Input} from '@angular/core';
+import { Component, OnInit , Input,Output,EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-hijo',
@@ -10,6 +10,8 @@ export class HijoComponent implements OnInit {
 @Input() public nombreBoton1:string;
 @Input() public nombreBoton2:string;
          public imagenUrl:string;
+
+    @Output()     emisor = new EventEmitter;
   constructor() { }
 
   ngOnInit() {
@@ -17,7 +19,15 @@ export class HijoComponent implements OnInit {
 
   getImagen(event){
     this.imagenUrl=event;
-     console.log(event);
+    
  
+  }
+
+  suscribirse(){
+this.emisor.emit("Suscrito");
+  }
+
+  desuscribirse(){
+    this.emisor.emit("Desuscrito");
   }
 }
