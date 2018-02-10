@@ -1,0 +1,24 @@
+<app-nieto [canal]="'Erojas'" (emisor)="getImagen($event)"></app-nieto>
+
+<div class="container">
+  <div class="row">
+    <div class="media">
+      <div class="media-left">
+        <a href="">
+
+          <img  [src]="imagenUrl"    alt="Angular" width="150" height="150">
+        </a>
+      </div>
+
+      <div class="media-body">
+        <h4 class="media-heading">Descripcion</h4>
+        Estas aprendiendo Angular 5 : {{mensaje}}
+      </div>
+    </div>
+<br>
+    <div class="form-group">
+      <button type="button" class="btn btn-primary">{{nombreBoton1}}</button>
+      <button type="button" class="btn btn-danger">{{nombreBoton2}}</button>
+    </div>
+  </div>
+</div>

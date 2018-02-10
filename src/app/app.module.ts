@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { HijoComponent } from './hijo/hijo.component';
+import { NietoComponent } from './nieto/nieto.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HijoComponent,
+    NietoComponent
   ],
   imports: [
     BrowserModule
