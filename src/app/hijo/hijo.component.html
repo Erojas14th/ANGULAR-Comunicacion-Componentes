@@ -6,7 +6,7 @@
       <div class="media-left">
         <a href="">
 
-          <img  [src]="imagenUrl"    alt="Angular" width="150" height="150">
+          <img [src]="imagenUrl" alt="Angular" width="150" height="150">
         </a>
       </div>
 
@@ -14,8 +14,20 @@
         <h4 class="media-heading">Descripcion</h4>
         Estas aprendiendo Angular 5 : {{mensaje}}
       </div>
+
+      
     </div>
-<br>
+    <div class="form-group">
+        <input class="form-control" type="text" placeholder="Ingrese un valor" [(ngModel)]="nombre">
+        <ul class="list-group" *ngFor="let e of listaPersonas">
+            <li class="list-group-item">{{e.id}}  -  {{e.nombreCompleto}} -  <a class="text-info" (click)="desuscribirse(e.id)">Eliminar</a> </li>
+             <div  ngSwitch="{{e.id % 2}}">
+                  <div *ngSwitchCase="'0'" class="bg-success text-white">Par</div>
+                  <div *ngSwitchCase="'1'" class="bg-info text-white">Impar</div>
+             </div>
+          </ul>
+      </div>
+    <br>
     <div class="form-group">
       <button type="button" class="btn btn-primary" (click)="suscribirse()">{{nombreBoton1}}</button>
       <button type="button" class="btn btn-danger" (click)="desuscribirse()">{{nombreBoton2}}</button>

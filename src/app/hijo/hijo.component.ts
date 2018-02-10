@@ -1,3 +1,4 @@
+import { Persona } from './../_model/persona';
 import { Component, OnInit , Input,Output,EventEmitter} from '@angular/core';
 
 @Component({
@@ -12,7 +13,12 @@ export class HijoComponent implements OnInit {
          public imagenUrl:string;
 
     @Output()     emisor = new EventEmitter;
-  constructor() { }
+
+    // Arreglo de Objeto Persona
+    nombre:string;
+    listaPersonas : Persona[]=[];
+   contadorId:number=1;
+    constructor() { }
 
   ngOnInit() {
   }
@@ -24,10 +30,26 @@ export class HijoComponent implements OnInit {
   }
 
   suscribirse(){
+    this.listaPersonas.push(new Persona(this.contadorId,this.nombre));
 this.emisor.emit("Suscrito");
+this.contadorId++;
   }
 
-  desuscribirse(){
+  desuscribirse(id:number){
+    console.log(id);
+
+    let index=-1;
+    for(let i=0; i<this.listaPersonas.length;i++){
+         if(id === this.listaPersonas[i].id){
+                index=i;
+                break;
+         }
+    }
+    this.listaPersonas.splice(index,1);
     this.emisor.emit("Desuscrito");
+    this.emisor.emit(`${this.nombre} Desuscrito`);
   }
+
+
+
 }

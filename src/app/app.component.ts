@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'app';
 
   getMensaje(event){
-    console.log(event);
+  
     this.mensaje=event;
   }
 }
